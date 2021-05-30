@@ -1,11 +1,9 @@
 <template>
   <div class="container">
     <Header
-      @toggle-add-task="toggleAddTask"
       title="Service Center"
-      :showAddTask="showAddTask"
     />
-    <router-view :showAddTask="showAddTask" :showAdd="showAdd"></router-view>
+    <router-view></router-view>
     <Footer />
   </div>
 </template>
@@ -19,16 +17,6 @@ export default {
   components: {
     Header,
     Footer,
-  },
-  data() {
-    return {
-      showAddTask: false,
-    }
-  },
-  methods: {
-    toggleAddTask() {
-      this.showAddTask = !this.showAddTask
-    },
   },
 }
 </script>
