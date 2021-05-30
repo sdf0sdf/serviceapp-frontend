@@ -2,6 +2,16 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 
-createApp(App)
-  .use(router)
-  .mount('#app')
+const app = createApp(App)
+
+app.mixin({
+  data() {
+    return {
+      url: 'http://127.0.0.1:8080/ServiceApp/claims',
+    }
+  },
+})
+
+app.use(router).mount('#app')
+
+
