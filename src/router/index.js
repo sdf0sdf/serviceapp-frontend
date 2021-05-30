@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Persons from '../views/Persons'
 import ClaimsView from '../views/ClaimsView'
 import NewClaimView from '../views/NewClaimView'
 import EditClaimView from '../views/EditClaimView'
