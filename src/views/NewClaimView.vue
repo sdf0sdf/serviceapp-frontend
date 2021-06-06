@@ -19,8 +19,9 @@ export default {
         body: JSON.stringify(claim),
       })
 
+      const id = await res.json()
       res.status === 200
-        ? alert('Claim created!')
+        ? this.$router.push(`${id}`) 
         : alert('Error creating claim! Please try again')
     },
   },

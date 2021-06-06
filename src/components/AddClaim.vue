@@ -2,17 +2,17 @@
   <h4 v-show="!newClaimView"> Claim Number: {{ claim.claimno }}</h4>
   <form @submit="onSubmit" class="add-form">
     <div class="form-control">
-      <label>Serial Number</label>
+      <label>Serial Number*:</label>
       <input type="text" v-model="claim.sn" name="sn" />
-      <label>Service Center</label>
+      <label>Service Center*:</label>
       <select v-model="claim.servicecenter.id" name="servicecenter">
         <option v-for="servicecenter in servicecenters" :key="servicecenter.id" :value="servicecenter.id">{{ servicecenter.name }}</option>
       </select>
-      <label>Product Type</label>
+      <label>Product Type*:</label>
       <select v-model="claim.producttype.id" name="producttype">
         <option :key="producttype.id" v-for="producttype in producttypes" v-bind:value="producttype.id">{{ producttype.name }}</option>
       </select>
-      <label v-show="newClaimView">Comment</label>
+      <label v-show="newClaimView">Comment*:</label>
       <input v-show="newClaimView" type="text" v-model="claim.claimprogress.comment" name="comment"  />
     </div>
 
@@ -64,12 +64,15 @@ export default {
       if (!this.claim.sn) {
         alert('Please add Serial Number')
         return
+      }else if (this.claim.sn.length > 10) {
+        alert('Serial Number must not exceed 10 characters')
+        return
       }
-      else if (!this.claim.servicecenter) {
+      else if (!this.claim.servicecenter.id) {
         alert('Please add Service Center')
         return
       }
-      else if (!this.claim.producttype) {
+      else if (!this.claim.producttype.id) {
         alert('Please add Product Type')
         return
       }

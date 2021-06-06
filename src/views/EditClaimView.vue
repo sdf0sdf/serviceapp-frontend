@@ -20,7 +20,6 @@ export default {
   },
   data() {
     return {
-      claimprogressUrl: 'http://127.0.0.1:8080/ServiceApp/claimprogress',
       claimId: -1,
       claimprogress: [],
     }
@@ -63,7 +62,7 @@ export default {
         body: JSON.stringify(progress),
       })
 
-      this.claimprogress = [...this.claimprogress, progress]
+      this.claimprogress = await this.fetchClaimProgress(this.claimId)
     },
   },
   async created() {

@@ -32,13 +32,13 @@ export default {
   },
   data() {
     return {
-      claimprogressUrl: 'http://127.0.0.1:8080/ServiceApp/claimprogress',
       newprogress:
         {
           id: this.id,
           claim:{id: -1},
+          claimprogressdate:'',
           claimstatus:{
-            id: this.id,
+            id: 'this.id',
           },
           comment: this.comment,
       },
